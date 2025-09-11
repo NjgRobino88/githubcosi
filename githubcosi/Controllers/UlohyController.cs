@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using githubcosi.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace githubcosi.Controllers
 {
@@ -19,5 +20,34 @@ namespace githubcosi.Controllers
         {
             return View();
         }
+
+
+        public IActionResult Uloha4()
+        {
+            List<UserInfo> users = new List<UserInfo>
+            {
+            new UserInfo { Name = "Alojz", Surname = "Gec", Email = "jojka@tv.sk" },
+            new UserInfo { Name = "Janko", Surname = "Kolenik", Email = "markiza@tv.sk" },
+            new UserInfo { Name = "Ley", Surname = "Lofaj", Email = "mag@wrap.cz" }
+            };
+
+            return View(users);
+        }
+
+
+        public IActionResult Uloha5()
+        {
+
+            List<UserInfo> users = new List<UserInfo>
+            {
+            new UserInfo { Name = "Alojz", Surname = "Gec", Email = "jojka@tv.sk" },
+            new UserInfo { Name = "Janko", Surname = "Kolenik", Email = "markiza@tv.sk" },
+            new UserInfo { Name = "Ley", Surname = "Lofaj", Email = "mag@wrap.cz" }
+            };
+            return View(users);
+        }
+
+
     }
 }
+

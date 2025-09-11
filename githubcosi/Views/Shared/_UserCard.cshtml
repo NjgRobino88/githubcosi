@@ -1,0 +1,48 @@
+﻿@model githubcosi.Models.UserInfo
+
+<div class="user-card">
+    <div class="user-photo">
+        <img src="/images/alojzko.png" alt="@Model.Name" />
+    </div>
+    <div class="user-info">
+        <h3>@Model.Name @Model.Surname</h3>
+        <p>@Model.Email</p>
+    </div>
+</div>
+
+<style>
+    .user-card {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .user-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+
+    .user-photo img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+
+    .user-info h3 {
+        margin: 0;
+        color: #4B0082; 
+    }
+
+    .user-info p {
+        margin: 5px 0 0 0;
+        color: #666;
+    }
+</style>
