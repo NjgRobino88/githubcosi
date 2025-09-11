@@ -1,16 +1,29 @@
 ﻿@model List<githubcosi.Models.UserInfo>
 
 <div class="container">
+    <div class="user-grid">
     @foreach (var user in Model)
     {
         <partial name= "_UserCard" model="user" />
     }
 </div>
+</div>
 
 <style>
     .container {
-        max-width: 800px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 20px;
+    }
+
+    .user-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .user-card {
+        flex: 0 1 300px;
+        box-sizing: border-box;
     }
 </style>
