@@ -8,5 +8,16 @@ namespace githubcosi.Controllers
         {
             return View();
         }
+
+
+        public IActionResult Uloha2()
+        {
+            return View();
+        }
+
+        public IActionResult Uloha3()
+        {
+            return View();
+        }
     }
 }
