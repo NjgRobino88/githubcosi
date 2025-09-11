@@ -20,3 +20,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.btn-primary {
+    background-color: lightblue;
+    border-color: black;
+    -moz-border-radius: 5px;
+}
+
+.btn-priamry:hover {
+    background-color: blue;
+}
