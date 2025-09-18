@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Uloha 7";
+}
+
+<div class="container" style="display:flex; gap:20px; margin-top:30px;">
+    <div id="container1" style="padding:20px; border:1px solid #000; width:200px; text-align:center;">
+        <button id="btn1" class="btn btn-primary">Klikni ma</button>
+        <p>Počet klikov: <span id="count1">0</span></p>
+    </div>
+
+    <div id="container2" style="padding:20px; border:1px solid #000; width:200px; text-align:center;">
+        <button id="btn2" class="btn btn-primary">Klikni ma</button>
+        <p>Počet klikov: <span id="count2">0</span></p>
+    </div>
+</div>
+
+<script>
+    function getRandomColor() {
+        let letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function setupContainer(btnId, countId, containerId) {
+        let count = 0;
+        document.getElementById(btnId).addEventListener("click", function () {
+            count++;
+            document.getElementById(countId).textContent = count;
+
+            if (count % 5 === 0) {
+                document.getElementById(containerId).style.backgroundColor = getRandomColor();
+            }
+        });
+    }
+
+    setupContainer("btn1", "count1", "container1");
+    setupContainer("btn2", "count2", "container2");
+</script>

@@ -42,12 +42,31 @@ namespace githubcosi.Controllers
             {
             new UserInfo { Name = "Alojz", Surname = "Gec", Email = "jojka@tv.sk" },
             new UserInfo { Name = "Janko", Surname = "Kolenik", Email = "markiza@tv.sk" },
+            new UserInfo { Name = "Ley", Surname = "Lofaj", Email = "mag@wrap.cz" },
+            new UserInfo { Name = "Alojz", Surname = "Gec", Email = "jojka@tv.sk" },
+            new UserInfo { Name = "Janko", Surname = "Kolenik", Email = "markiza@tv.sk" },
             new UserInfo { Name = "Ley", Surname = "Lofaj", Email = "mag@wrap.cz" }
+
             };
             return View(users);
         }
 
+        public IActionResult Uloha6()
+        {
+            return View();
+        }
 
-    }
+        public IActionResult Uloha7()
+        {
+            return View();
+        }
+
+
+        public IActionResult Uloha8()
+        {
+            return View();
+        }
+    }   
+        
 }
 

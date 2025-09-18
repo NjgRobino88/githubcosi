@@ -1,0 +1,124 @@
+﻿<script>
+    const user = {
+        name: "Tom",
+        age: 18,
+        hobbies: ["hobbyhorsing"]
+    };
+
+    const jsonString = JSON.stringify(user);
+    console.log(jsonString);
+
+
+
+    const jsonString2 = '{"name":"Tom","age":18,"hobbies":["hobbyhorsing"]}';
+
+    const obj = JSON.parse(jsonString2);
+    console.log(obj);
+    console.log("toto je moje top hobi :3" + " <br> " +  obj.hobbies[0]);
+
+
+
+</script>
+
+
+<script>
+const jsonString3 = `[
+    {"produkt":"mys", "cena":20},
+    {"produkt":"klavesnica", "cena":50},
+    {"produkt":"monitor", "cena":200}
+]`;
+
+const produkty = JSON.parse(jsonString3);
+
+console.log( produkty[1].produkt +" "+ produkty[1].cena);
+</script>
+
+
+<script>
+const jsonString4 = `{
+    "produkty": [
+        {"meno":"Jan", "hobbi": ["hobbyhorsing", "reading"]}
+    ]
+}`;
+
+const obj2 = JSON.parse(jsonString4);
+
+obj2.produkty[0].hobbi.forEach((hobby, index) => {
+    console.log(index + 1 + ". " + hobby);
+});
+</script>
+
+
+<script>
+const workersJson = `[
+    {"name":"Alice", "age":30, "position":"programmer"},
+    {"name":"Bob", "age":25, "position":"programmer"},
+    {"name":"Charlie", "age":35, "position":"manager"},
+    {"name":"Diana", "age":28, "position":"designer"},
+    {"name":"Eve", "age":32, "position":"programmer"},
+    {"name":"Frank", "age":29, "position":"designer"},
+    {"name":"Grace", "age":27, "position":"programmer"}
+]`;
+
+const workers = JSON.parse(workersJson);
+
+const programmers = workers.filter(worker => worker.position === "programmer");
+
+console.log("Programmers:");
+programmers.forEach(prog => {
+    console.log(prog.name + ", Age: " + prog.age);
+});
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Workers Table</title>
+
+</head>
+<body>
+
+<table id="workersTable">
+    <thead>
+        <tr><th>Name</th><th>Age</th><th>Position</th></tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+const workersson = `[
+    {"name":"Alice", "age":30, "position":"programmer"},
+    {"name":"Bob", "age":25, "position":"programmer"},
+    {"name":"Charlie", "age":35, "position":"manager"},
+    {"name":"Diana", "age":28, "position":"designer"},
+    {"name":"Eve", "age":32, "position":"programmer"},
+    {"name":"Frank", "age":29, "position":"designer"},
+    {"name":"Grace", "age":27, "position":"programmer"}
+]`;
+
+const worker = JSON.parse(workersson);
+let rows = "";
+
+for(let i = 0; i < worker.length; i++) {
+    rows += `<tr>
+        <td>${worker[i].name}</td>
+        <td>${worker[i].age}</td>
+        <td>${worker[i].position}</td>
+    </tr>`;
+}
+
+document.querySelector("#workersTable tbody").innerHTML = rows;
+</script>
+
+</body>
+
+<style>
+    table { border-collapse: collapse; width: 50%; margin-top: 20px; }
+    th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+</style>    
+</html>
+

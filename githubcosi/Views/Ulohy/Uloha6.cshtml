@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Uloha 6";
+}
+
+
+
+<div class="container">
+    <button id="toggleBtn" class="btn btn-primary">Toggle Text</button>
+
+    <div id="toggleText">
+        <p>Toto je text ktorý sa má skrývať a zobrazovať.</p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("toggleBtn").addEventListener("click", function () {
+        let textDiv = document.getElementById("toggleText");
+        if (textDiv.style.display === "none") {
+            textDiv.style.display = "block";
+        } else {
+            textDiv.style.display = "none";
+        }
+    });
+</script>

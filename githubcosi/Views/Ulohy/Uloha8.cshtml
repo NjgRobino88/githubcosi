@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Uloha 8";
+}
+
+
+
+<div class="container" style="margin-top:30px;">
+    <textarea id="myTextarea" rows="5" cols="40"
+              class="border-red"
+              style="padding:10px; font-size:16px; outline:none;"></textarea>
+    <p>Počet znakov: <span id="charCount">0</span></p>
+</div>
+
+<script>
+    const textarea = document.getElementById("myTextarea");
+    const counter = document.getElementById("charCount");
+
+    textarea.addEventListener("input", function () {
+        let length = textarea.value.length;
+        counter.textContent = length;
+
+        if (length < 20) {
+            textarea.style.borderColor = "red";
+        } else {
+            textarea.style.borderColor = "green";
+        }
+    });
+</script>
+
+<style>
+    .border-red {
+        border: 2px solid red;
+    }
+
+    .border-green {
+        border: 2px solid green;
+    }
+</style>
+
+
+
+<script>
+    const textarea = document.getElementById("myTextarea");
+    const counter = document.getElementById("charCount");
+
+    textarea.addEventListener("input", function () {
+        let length = textarea.value.length;
+        counter.textContent = length;
+
+        if (length < 20)  {
+                textarea.classList.replace("border-green", "border-red");
+            
+        } else {
+                textarea.classList.replace("border-red", "border-green");
+            
+        }
+    });
+</script>
