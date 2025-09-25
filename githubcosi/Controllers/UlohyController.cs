@@ -26,9 +26,9 @@ namespace githubcosi.Controllers
         {
             List<UserInfo> users = new List<UserInfo>
             {
-            new UserInfo { Name = "Alojz", Surname = "Gec", Email = "jojka@tv.sk" },
-            new UserInfo { Name = "Janko", Surname = "Kolenik", Email = "markiza@tv.sk" },
-            new UserInfo { Name = "Ley", Surname = "Lofaj", Email = "mag@wrap.cz" }
+            new UserInfo { Name = "Alojz", Surname = "Gec", Emaili = "jojka@tv.sk" },
+            new UserInfo { Name = "Janko", Surname = "Kolenik", Emaili = "markiza@tv.sk" },
+            new UserInfo { Name = "Ley", Surname = "Lofaj", Emaili = "mag@wrap.cz" }
             };
 
             return View(users);
@@ -40,12 +40,12 @@ namespace githubcosi.Controllers
 
             List<UserInfo> users = new List<UserInfo>
             {
-            new UserInfo { Name = "Alojz", Surname = "Gec", Email = "jojka@tv.sk" },
-            new UserInfo { Name = "Janko", Surname = "Kolenik", Email = "markiza@tv.sk" },
-            new UserInfo { Name = "Ley", Surname = "Lofaj", Email = "mag@wrap.cz" },
-            new UserInfo { Name = "Alojz", Surname = "Gec", Email = "jojka@tv.sk" },
-            new UserInfo { Name = "Janko", Surname = "Kolenik", Email = "markiza@tv.sk" },
-            new UserInfo { Name = "Ley", Surname = "Lofaj", Email = "mag@wrap.cz" }
+            new UserInfo { Name = "Alojz", Surname = "Gec", Emaili = "jojka@tv.sk" },
+            new UserInfo { Name = "Janko", Surname = "Kolenik", Emaili = "markiza@tv.sk" },
+            new UserInfo { Name = "Ley", Surname = "Lofaj", Emaili = "mag@wrap.cz" },
+            new UserInfo { Name = "Alojz", Surname = "Gec", Emaili = "jojka@tv.sk" },
+            new UserInfo { Name = "Janko", Surname = "Kolenik", Emaili = "markiza@tv.sk" },
+            new UserInfo { Name = "Ley", Surname = "Lofaj", Emaili = "mag@wrap.cz" }
 
             };
             return View(users);
@@ -65,6 +65,33 @@ namespace githubcosi.Controllers
         public IActionResult Uloha8()
         {
             return View();
+        }
+
+        private static List<UserModel> _users = new List<UserModel>();
+
+
+        [HttpGet]
+        public IActionResult Formular()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Formular(UserModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                _users.Add(user);
+                return RedirectToAction("FormularShow", user);
+            }
+            return View(user);
+        }
+
+
+        [HttpGet]
+        public IActionResult FormularShow(UserModel user)
+        {
+            return View(_users);
         }
     }   
         

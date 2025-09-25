@@ -1,0 +1,53 @@
+﻿@model List<githubcosi.Models.UserModel>
+
+@{
+    ViewData["Title"] = "Výsledok";
+}
+
+@foreach (var user in Model)
+{
+    <h2>Vitaj, @user.Meno!</h2>
+
+    <ul>
+        <li>Email: @user.Email</li>
+        <li>Vek: @user.Vek</li>
+        <li>Mesto: @user.Mesto</li>
+        <li>Telefón: @user.Telefon</li>
+        <li>
+            Choroby:
+            @if (user.Choroby != null && user.Choroby.Any())
+            {
+                <ul>
+                    @foreach (var choroba in user.Choroby)
+                    {
+                        <li>@choroba</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>Žiadne</span>
+            }
+        </li>
+    </ul>
+}
+
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        background-color: #f9f9f9;
+        margin-bottom: 8px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        margin-top: 20px;
+        color: #4B0082;
+    }
+</style>

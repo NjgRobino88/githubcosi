@@ -1,0 +1,146 @@
+﻿@model githubcosi.Models.UserModel
+
+@{
+    ViewData["Title"] = "Formulár";
+}
+
+<h2>Vyplň formulár</h2>
+
+<form asp-action="Formular" method="post">
+    <div>
+        <label for="Meno">Meno</label>
+        <input asp-for="Meno" />
+        <span asp-validation-for="Meno"></span>
+    </div>
+
+    <div>
+        <label for="Email">Email</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div>
+        <label for="Vek">Vek</label>
+        <input asp-for="Vek" type="number" />
+        <span asp-validation-for="Vek"></span>
+    </div>
+
+    <div>
+        <label for="Mesto">Mesto</label>
+        <input asp-for="Mesto" />
+    </div>
+
+    <div>
+        <label for="Telefon">Telefón</label>
+        <input asp-for="Telefon" />
+    </div>
+
+    <div>
+        <label for="ChorobaInput">Choroby</label>
+        <div style="display:flex; gap:10px;">
+            <input type="text" id="chorobaInput" placeholder="Zadaj chorobu..." />
+            <button type="button" id="addChorobaBtn">+</button>
+        </div>
+    </div>
+
+    <ul id="chorobyContainer"></ul>
+
+    <div id="hiddenInputs"></div>
+
+    <button type="submit">Odoslať</button>
+</form>
+
+<style>
+    form div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    span {
+        color: red;
+        font-size: 0.9em;
+    }
+
+    button {
+        background-color: #4B0082;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #3a0066;
+        }
+
+    #chorobyContainer {
+        margin-top: 15px;
+        list-style: none;
+        padding: 0;
+    }
+
+        #chorobyContainer li {
+            background: #eee;
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            #chorobyContainer li button {
+                background: red;
+                border: none;
+                color: white;
+                padding: 3px 8px;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+</style>
+
+<script>
+    const addChorobaBtn = document.getElementById("addChorobaBtn");
+    const chorobaInput = document.getElementById("chorobaInput");
+    const chorobyContainer = document.getElementById("chorobyContainer");
+    const hiddenInputs = document.getElementById("hiddenInputs");
+
+    addChorobaBtn.addEventListener("click", function () {
+        const choroba = chorobaInput.value.trim();
+        if (choroba) {
+            const li = document.createElement("li");
+            li.textContent = choroba;
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "x";
+            removeBtn.addEventListener("click", function () {
+                chorobyContainer.removeChild(li);
+                hiddenInputs.removeChild(hiddenInput);
+            });
+            li.appendChild(removeBtn);
+            chorobyContainer.appendChild(li);
+            const hiddenInput = document.createElement("input");
+            hiddenInput.type = "hidden";
+            hiddenInput.name = "Choroby";
+            hiddenInput.value = choroba;
+            hiddenInputs.appendChild(hiddenInput);
+            chorobaInput.value = "";
+        }
+    });
+
+
+    
+</script>
